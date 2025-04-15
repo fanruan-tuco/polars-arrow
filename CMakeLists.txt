@@ -724,7 +724,7 @@ add_subdirectory(src/arrow)
 
 if(ARROW_PARQUET)
   add_subdirectory(src/parquet)
-  add_subdirectory(tools/parquet)
+  # add_subdirectory(tools/parquet)
   if(PARQUET_BUILD_EXAMPLES)
     add_subdirectory(examples/parquet)
   endif()
