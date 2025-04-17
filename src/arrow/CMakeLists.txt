@@ -935,8 +935,8 @@ if(ARROW_BUILD_BUNDLED_DEPENDENCIES)
   # arrow_bundled_dependencies is an IMPORTED library.
   get_target_property(arrow_bundled_dependencies_path arrow_bundled_dependencies
                       IMPORTED_LOCATION)
-  install(FILES ${arrow_bundled_dependencies_path} ${INSTALL_IS_OPTIONAL}
-          DESTINATION ${CMAKE_INSTALL_LIBDIR})
+  # install(FILES ${arrow_bundled_dependencies_path} ${INSTALL_IS_OPTIONAL}
+  #         DESTINATION ${CMAKE_INSTALL_LIBDIR})
   string(PREPEND ARROW_PC_LIBS_PRIVATE " -larrow_bundled_dependencies")
   list(INSERT ARROW_STATIC_INSTALL_INTERFACE_LIBS 0 "Arrow::arrow_bundled_dependencies")
 endif()
@@ -1051,9 +1051,9 @@ if(ARROW_BUILD_SHARED AND NOT WIN32)
     set(ARROW_GDB_AUTO_LOAD_LIBARROW_GDB_INSTALL TRUE)
   endif()
   if(ARROW_GDB_AUTO_LOAD_LIBARROW_GDB_INSTALL)
-    install(FILES "${CMAKE_CURRENT_BINARY_DIR}/libarrow_gdb.py"
-            DESTINATION "${ARROW_GDB_AUTO_LOAD_LIBARROW_GDB_DIR}"
-            RENAME "$<TARGET_FILE_NAME:arrow_shared>-gdb.py")
+    # install(FILES "${CMAKE_CURRENT_BINARY_DIR}/libarrow_gdb.py"
+    #         DESTINATION "${ARROW_GDB_AUTO_LOAD_LIBARROW_GDB_DIR}"
+    #         RENAME "$<TARGET_FILE_NAME:arrow_shared>-gdb.py")
   endif()
 endif()
 
@@ -1117,12 +1117,12 @@ endif()
 arrow_install_all_headers("arrow")
 
 config_summary_cmake_setters("${CMAKE_CURRENT_BINARY_DIR}/ArrowOptions.cmake")
-install(FILES ${CMAKE_CURRENT_BINARY_DIR}/ArrowOptions.cmake
-        DESTINATION "${ARROW_CMAKE_DIR}/Arrow")
+# install(FILES ${CMAKE_CURRENT_BINARY_DIR}/ArrowOptions.cmake
+#         DESTINATION "${ARROW_CMAKE_DIR}/Arrow")
 
 # For backward compatibility for find_package(arrow)
-install(FILES ${CMAKE_CURRENT_SOURCE_DIR}/arrow-config.cmake
-        DESTINATION "${ARROW_CMAKE_DIR}/Arrow")
+# install(FILES ${CMAKE_CURRENT_SOURCE_DIR}/arrow-config.cmake
+#         DESTINATION "${ARROW_CMAKE_DIR}/Arrow")
 
 #
 # Unit tests

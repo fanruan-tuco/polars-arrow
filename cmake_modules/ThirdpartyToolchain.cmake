@@ -238,8 +238,8 @@ function(provide_cmake_module MODULE_NAME ARROW_CMAKE_PACKAGE_NAME)
   if(EXISTS "${module}")
     message(STATUS "Providing CMake module for ${MODULE_NAME} as part of ${ARROW_CMAKE_PACKAGE_NAME} CMake package"
     )
-    install(FILES "${module}"
-            DESTINATION "${ARROW_CMAKE_DIR}/${ARROW_CMAKE_PACKAGE_NAME}")
+    # install(FILES "${module}"
+    #         DESTINATION "${ARROW_CMAKE_DIR}/${ARROW_CMAKE_PACKAGE_NAME}")
   endif()
 endfunction()
 
@@ -2295,19 +2295,19 @@ function(build_gtest)
                                      PDB_OUTPUT_DIRECTORY
                                      "${BUILD_OUTPUT_ROOT_DIRECTORY}")
   endforeach()
-  install(DIRECTORY "${googletest_SOURCE_DIR}/googlemock/include/"
-                    "${googletest_SOURCE_DIR}/googletest/include/"
-          DESTINATION "${CMAKE_INSTALL_INCLUDEDIR}")
-  install(TARGETS gmock gmock_main gtest gtest_main
-          EXPORT arrow_testing_targets
-          RUNTIME DESTINATION "${CMAKE_INSTALL_BINDIR}"
-          ARCHIVE DESTINATION "${CMAKE_INSTALL_LIBDIR}"
-          LIBRARY DESTINATION "${CMAKE_INSTALL_LIBDIR}")
+  # install(DIRECTORY "${googletest_SOURCE_DIR}/googlemock/include/"
+  #                   "${googletest_SOURCE_DIR}/googletest/include/"
+  #         DESTINATION "${CMAKE_INSTALL_INCLUDEDIR}")
+  # install(TARGETS gmock gmock_main gtest gtest_main
+  #         EXPORT arrow_testing_targets
+  #         RUNTIME DESTINATION "${CMAKE_INSTALL_BINDIR}"
+  #         ARCHIVE DESTINATION "${CMAKE_INSTALL_LIBDIR}"
+  #         LIBRARY DESTINATION "${CMAKE_INSTALL_LIBDIR}")
   if(MSVC)
-    install(FILES $<TARGET_PDB_FILE:gmock> $<TARGET_PDB_FILE:gmock_main>
-                  $<TARGET_PDB_FILE:gtest> $<TARGET_PDB_FILE:gtest_main>
-            DESTINATION "${CMAKE_INSTALL_BINDIR}"
-            OPTIONAL)
+    # install(FILES $<TARGET_PDB_FILE:gmock> $<TARGET_PDB_FILE:gmock_main>
+    #               $<TARGET_PDB_FILE:gtest> $<TARGET_PDB_FILE:gtest_main>
+    #         DESTINATION "${CMAKE_INSTALL_BINDIR}"
+    #         OPTIONAL)
   endif()
   add_library(arrow::GTest::gmock ALIAS gmock)
   add_library(arrow::GTest::gmock_main ALIAS gmock_main)
@@ -5346,5 +5346,5 @@ message(STATUS "All bundled static libraries: ${ARROW_BUNDLED_STATIC_LIBS}")
 # Write out the package configurations.
 
 configure_file("src/arrow/util/config.h.cmake" "src/arrow/util/config.h" ESCAPE_QUOTES)
-install(FILES "${ARROW_BINARY_DIR}/src/arrow/util/config.h"
-        DESTINATION "${CMAKE_INSTALL_INCLUDEDIR}/arrow/util")
+# install(FILES "${ARROW_BINARY_DIR}/src/arrow/util/config.h"
+#         DESTINATION "${CMAKE_INSTALL_INCLUDEDIR}/arrow/util")

@@ -363,8 +363,8 @@ arrow_install_all_headers("parquet")
 
 configure_file(parquet_version.h.in "${CMAKE_CURRENT_BINARY_DIR}/parquet_version.h" @ONLY)
 
-install(FILES "${CMAKE_CURRENT_BINARY_DIR}/parquet_version.h"
-        DESTINATION "${CMAKE_INSTALL_INCLUDEDIR}/parquet")
+# install(FILES "${CMAKE_CURRENT_BINARY_DIR}/parquet_version.h"
+#         DESTINATION "${CMAKE_INSTALL_INCLUDEDIR}/parquet")
 
 add_parquet_test(internals-test
                  SOURCES
