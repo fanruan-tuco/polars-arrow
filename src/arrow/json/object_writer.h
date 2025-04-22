@@ -19,6 +19,7 @@
 
 #include <memory>
 #include <string_view>
+#include <string>
 
 #include "arrow/util/visibility.h"
 
