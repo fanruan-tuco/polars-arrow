@@ -2746,7 +2746,7 @@ class DeltaLengthByteArrayEncoder : public EncoderImpl,
   std::shared_ptr<Buffer> FlushValues() override;
 
   int64_t EstimatedDataEncodedSize() override {
-    return encoded_size_ + length_encoder_.EstimatedDataEncodedSize();
+    return sink_.length() + length_encoder_.EstimatedDataEncodedSize();
   }
 
   using TypedEncoder<ByteArrayType>::Put;
