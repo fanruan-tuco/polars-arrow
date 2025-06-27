@@ -75,14 +75,12 @@
 
 
 
-#ifdef __cplusplus
-extern "C" {
-#endif
-
-
-
 #ifndef URI_DOXYGEN
 # include "UriBase.h"
+#endif
+
+#ifdef __cplusplus
+extern "C" {
 #endif
 
 

@@ -517,7 +517,7 @@ typedef uint32_t XXH32_hash_t;
 #elif !defined (__VMS) \
   && (defined (__cplusplus) \
   || (defined (__STDC_VERSION__) && (__STDC_VERSION__ >= 199901L) /* C99 */) )
-#   include <stdint.h>
+
     typedef uint32_t XXH32_hash_t;
 
 #else
@@ -821,7 +821,7 @@ typedef uint64_t XXH64_hash_t;
 #elif !defined (__VMS) \
   && (defined (__cplusplus) \
   || (defined (__STDC_VERSION__) && (__STDC_VERSION__ >= 199901L) /* C99 */) )
-#  include <stdint.h>
+
    typedef uint64_t XXH64_hash_t;
 #else
 #  include <limits.h>
@@ -2077,7 +2077,7 @@ static void XXH_free(void* p) { free(p); }
 
 #endif  /* XXH_NO_STDLIB */
 
-#include <string.h>
+
 
 /*!
  * @internal
@@ -2088,7 +2088,6 @@ static void* XXH_memcpy(void* dest, const void* src, size_t size)
     return memcpy(dest,src,size);
 }
 
-#include <limits.h>   /* ULLONG_MAX */
 
 
 /* *************************************
@@ -2206,7 +2205,7 @@ static void* XXH_memcpy(void* dest, const void* src, size_t size)
 #if !defined (__VMS) \
  && (defined (__cplusplus) \
  || (defined (__STDC_VERSION__) && (__STDC_VERSION__ >= 199901L) /* C99 */) )
-# include <stdint.h>
+
   typedef uint8_t xxh_u8;
 #else
   typedef unsigned char xxh_u8;
@@ -6630,7 +6629,7 @@ XXH_PUBLIC_API XXH128_hash_t XXH3_128bits_digest (XXH_NOESCAPE const XXH3_state_
 #endif /* !XXH_NO_STREAM */
 /* 128-bit utility functions */
 
-#include <string.h>   /* memcmp, memcpy */
+
 
 /* return : 1 is equal, 0 if different */
 /*! @ingroup XXH3_family */
