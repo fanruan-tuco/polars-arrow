@@ -25,7 +25,7 @@
 #include "arrow/type_fwd.h"
 #include "arrow/util/string_builder.h"
 #include "parquet/platform.h"
-#include "common/Exception.h"
+import polars.exception;
 
 // PARQUET-1085
 #if !defined(ARROW_UNUSED)
