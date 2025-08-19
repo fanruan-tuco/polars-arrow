@@ -47,6 +47,8 @@
 #include "parquet/properties.h"
 #include "parquet/schema.h"
 
+#include "common/ThreadLocalMemoryTracker.h"
+
 using arrow::Array;
 using arrow::ArrayData;
 using arrow::BooleanArray;
@@ -1033,9 +1035,13 @@ Status FileReaderImpl::GetRecordBatchReader(const std::vector<int>& row_groups,
         int64_t batch_size = std::min(properties().batch_size(), num_rows);
         num_rows -= batch_size;
 
+        auto& memory_tracker = polars::current_thread_memory_tracker->getParentTracker();
         RETURN_NOT_OK(::arrow::internal::OptionalParallelFor(
             reader_properties_.use_threads(), static_cast<int>(readers.size()),
-            [&](int i) { return readers[i]->NextBatch(batch_size, &columns[i]); }));
+            [&](int i) {
+                polars::ThreadLocalMemoryTracker thread_local_memory_tracker(memory_tracker, false);
+                return readers[i]->NextBatch(batch_size, &columns[i]);
+            }));
 
         for (const auto& column : columns) {
           if (column == nullptr || column->length() == 0) {
