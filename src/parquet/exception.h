@@ -37,10 +37,10 @@
 // Parquet exception to Arrow Status
 
 #if defined(ARROW_WITH_POLARS)
-#define POLARS_THROW_CATCH
-catch (const polars::MemoryLimitExceededException& e) { \
-  return ::arrow::Status::OutOfMemory(e.what());     \
-}
+#define POLARS_THROW_CATCH                                  \
+    catch (const polars::MemoryLimitExceededException& e) { \
+        return ::arrow::Status::OutOfMemory(e.what());      \
+    }
 #else
 #define POLARS_THROW_CATCH
 #endif
