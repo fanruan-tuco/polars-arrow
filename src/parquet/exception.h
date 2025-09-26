@@ -25,7 +25,9 @@
 #include "arrow/type_fwd.h"
 #include "arrow/util/string_builder.h"
 #include "parquet/platform.h"
+#if defined(ARROW_WITH_POLARS)
 #include "common/Exception.h"
+#endif
 
 // PARQUET-1085
 #if !defined(ARROW_UNUSED)
@@ -33,6 +35,15 @@
 #endif
 
 // Parquet exception to Arrow Status
+
+#if defined(ARROW_WITH_POLARS)
+#define POLARS_THROW_CATCH
+catch (const polars::MemoryLimitExceededException& e) { \
+  return ::arrow::Status::OutOfMemory(e.what());     \
+}
+#else
+#define POLARS_THROW_CATCH
+#endif
 
 #define BEGIN_PARQUET_CATCH_EXCEPTIONS try {
 #define END_PARQUET_CATCH_EXCEPTIONS                   \
@@ -43,9 +54,7 @@
   catch (const ::parquet::ParquetException& e) {       \
     return ::arrow::Status::IOError(e.what());         \
   }                                                    \
-  catch (const polars::MemoryLimitExceededException& e) { \
-    return ::arrow::Status::OutOfMemory(e.what());     \
-  }
+  POLARS_THROW_CATCH
 
 // clang-format off
 

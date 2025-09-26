@@ -555,6 +555,9 @@ takes precedence over ccache if a storage backend is configured" ON)
                 "Build with support for regular expressions using the re2 library;(only used if ARROW_COMPUTE or ARROW_GANDIVA is ON)"
                 ON)
 
+  define_option(ARROW_WITH_POLARS
+          "Build libraries with Polars" OFF)
+
   #----------------------------------------------------------------------
   if(MSVC_TOOLCHAIN)
     set_option_category("MSVC")
