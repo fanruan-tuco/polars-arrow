@@ -71,3 +71,5 @@
 #cmakedefine ARROW_WITH_ZLIB
 #cmakedefine ARROW_WITH_ZSTD
 #cmakedefine PARQUET_REQUIRE_ENCRYPTION
+
+#cmakedefine ARROW_WITH_POLARS
