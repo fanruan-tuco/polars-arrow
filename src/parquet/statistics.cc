@@ -606,10 +606,8 @@ class TypedStatisticsImpl : public TypedStatistics<DType> {
       has_distinct_count_ = false;
     }
 
-    if (!encoded_min.empty()) {
+    if (has_min_max) {
       PlainDecode(encoded_min, &min_);
-    }
-    if (!encoded_max.empty()) {
       PlainDecode(encoded_max, &max_);
     }
     has_min_max_ = has_min_max;
