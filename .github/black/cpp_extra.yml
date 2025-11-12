@@ -193,6 +193,5 @@ jobs:
     needs:
       - jni-linux
       - jni-macos
-      - msvc-arm64
     uses: ./.github/workflows/report_ci.yml
     secrets: inherit

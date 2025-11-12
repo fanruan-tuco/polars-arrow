@@ -61,8 +61,9 @@ class ArrowSources:
         path : src
         """
         path = Path(path)
+        print(f"trying path {path}")
         # validate by checking a specific path in the arrow source tree
-        if not (path / 'src' / 'CMakeLists.txt').exists():
+        if not (path / 'CMakeLists.txt').exists():
             raise InvalidArrowSource(
                 f"No Arrow C++ sources found in {path}."
             )
