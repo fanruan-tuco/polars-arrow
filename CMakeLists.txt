@@ -743,7 +743,7 @@ if(ARROW_BUILD_EXAMPLES)
   add_subdirectory(examples/arrow)
 endif()
 
-target_link_libraries(arrow_static PUBLIC polars-common)
+#target_link_libraries(arrow_static PUBLIC polars-common)
 
 # install(FILES ${CMAKE_CURRENT_SOURCE_DIR}/../LICENSE.txt
 #               ${CMAKE_CURRENT_SOURCE_DIR}/../NOTICE.txt
