@@ -19,8 +19,8 @@
 
 set -ex
 
-source_dir=${1}/cpp
-build_dir=${2}/cpp
+source_dir=${1}/
+build_dir=${2}/
 
 : ${ARROW_OFFLINE:=OFF}
 : ${ARROW_USE_CCACHE:=OFF}
