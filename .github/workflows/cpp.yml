@@ -177,7 +177,7 @@ jobs:
           # in GitHub Actions runner now. We can remove this once
           # pkg-config formula is removed from GitHub Actions runner.
           brew uninstall pkg-config || :
-          brew bundle --file=cpp/Brewfile
+          brew bundle --file=./Brewfile
       - name: Install MinIO
         run: |
           $(brew --prefix bash)/bin/bash \
