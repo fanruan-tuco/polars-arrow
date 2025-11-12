@@ -39,19 +39,6 @@ jobs:
     with:
       parent-workflow: cpp_extra
 
-  msvc-arm64:
-    needs: check-labels
-    if: >-
-      needs.check-labels.outputs.force == 'true' ||
-      contains(fromJSON(needs.check-labels.outputs.ci-extra-labels || '[]'), 'CI: Extra') ||
-      contains(fromJSON(needs.check-labels.outputs.ci-extra-labels || '[]'), 'CI: Extra: C++')
-    name: ARM64 Windows 11 MSVC
-    uses: ./.github/workflows/cpp_windows.yml
-    with:
-      arch: arm64
-      os: windows-11-arm
-      simd-level: NONE
-
   jni-linux:
     needs: check-labels
     name: JNI ${{ matrix.platform.runs-on }} ${{ matrix.platform.arch }}
