@@ -300,7 +300,7 @@ if [ "${ARROW_USE_MESON:-OFF}" = "ON" ]; then
 else
   : ${CMAKE_BUILD_PARALLEL_LEVEL:=${ARROW_BUILD_PARALLEL}}
   export CMAKE_BUILD_PARALLEL_LEVEL
-  time cmake --build . --target install
+  time cmake --build . --target all
 fi
 
 # Save disk space by removing large temporary build products
