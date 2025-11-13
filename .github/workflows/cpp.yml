@@ -139,6 +139,13 @@ jobs:
           - architecture: ARM64
             macos-version: "14"
     env:
+      ARROW_CSV: OFF
+      ARROW_CUDA: OFF
+      ARROW_FILESYSTEM: ON
+      ARROW_FLIGHT_SQL: OFF
+      ARROW_JSON: OFF
+      ARROW_MIMALLOC: ON
+      PARQUET_BUILD_EXAMPLES: OFF
       ARROW_AZURE: OFF
       ARROW_BUILD_TESTS: ON
       ARROW_DATASET: OFF

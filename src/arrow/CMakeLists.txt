@@ -1215,9 +1215,9 @@ if(ARROW_CUDA)
   add_subdirectory(gpu)
 endif()
 
-#if(ARROW_DATASET)
-#  add_subdirectory(dataset)
-#endif()
+if(ARROW_DATASET)
+  add_subdirectory(dataset)
+endif()
 
 if(ARROW_FILESYSTEM)
   add_subdirectory(filesystem)
