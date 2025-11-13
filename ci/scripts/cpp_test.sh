@@ -25,8 +25,8 @@ if [[ $# -lt 2 ]]; then
 fi
 
 arrow_dir=${1}; shift
-build_dir=${1}/cpp; shift
-source_dir=${arrow_dir}/cpp
+build_dir=${1}; shift
+source_dir=${arrow_dir}
 binary_output_dir=${build_dir}/${ARROW_BUILD_TYPE:-debug}
 
 export ARROW_TEST_DATA=${arrow_dir}/testing/data
